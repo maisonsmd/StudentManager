@@ -89,6 +89,8 @@ System::Void Students::ReadFile()
 		//get current working directory
 		String^ path = System::IO::Path::GetDirectoryName(Application::ExecutablePath) + System::IO::Path::DirectorySeparatorChar + "db.json";
 		std::string path_str = (const char*)(Marshal::StringToHGlobalAnsi(path)).ToPointer();
+		Console::WriteLine("Reading from: " + path);
+
 		//open file
 		std::ifstream infile(path_str);
 		infile >> js;
@@ -122,10 +124,12 @@ System::Void Students::WriteFile()
 		//get current working directory
 		String^ path = System::IO::Path::GetDirectoryName(Application::ExecutablePath) + System::IO::Path::DirectorySeparatorChar + "db.json";
 		std::string path_str = (const char*)(Marshal::StringToHGlobalAnsi(path)).ToPointer();
+		Console::WriteLine("writting to: " + path);
 		//open file
 		std::ofstream outfile(path_str);
 		outfile << toJson().dump(4);
 		outfile.close();
+		Console::WriteLine("Done");
 	}
 	catch (Exception^ e) {
 		Console::Write("Write file failed: ");
@@ -173,9 +177,9 @@ json StudentContainer::toJson()
 {
 	std::string stName, stClass, stID, stDateOfBirth, stScore;
 	stName = (const char*)(Marshal::StringToHGlobalAnsi(Name)).ToPointer();
-	stClass = (const char*)(Marshal::StringToHGlobalAnsi(Class)).ToPointer();
-	stID = (const char*)(Marshal::StringToHGlobalAnsi(ID)).ToPointer();
-	stDateOfBirth = (const char*)(Marshal::StringToHGlobalAnsi(DateOfBirth.ToShortDateString())).ToPointer();
+	stClass = (const char*)(Marshal::StringToHGlobalUni(Class)).ToPointer();
+	stID = (const char*)(Marshal::StringToHGlobalUni(ID)).ToPointer();
+	stDateOfBirth = (const char*)(Marshal::StringToHGlobalUni(DateOfBirth.ToShortDateString())).ToPointer();
 	stScore = std::to_string(Score);
 
 	json js = {

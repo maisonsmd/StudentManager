@@ -512,6 +512,10 @@ namespace StudentManager {
 			MessageBox::Show(L"Mã SV quá ngắn!");
 			return;
 		}
+		if (stClass->Length < 1) {
+			MessageBox::Show(L"Tên lớp quá ngắn!");
+			return;
+		}
 		if (!DateTime::TryParse(txtStudentDateOfBirth->Text, stDateOfBirth)) {
 			MessageBox::Show(L"Lỗi định dạng ngày tháng!");
 			return;
@@ -594,6 +598,10 @@ namespace StudentManager {
 		}
 		if (editingStudent->ID->Length < 3) {
 			MessageBox::Show(L"Mã SV quá ngắn!");
+			return;
+		}
+		if (editingStudent->Class->Length < 1) {
+			MessageBox::Show(L"Tên lớp quá ngắn!");
 			return;
 		}
 		if (!DateTime::TryParse(txtStudentDateOfBirth->Text, editingStudent->DateOfBirth)) {
