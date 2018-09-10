@@ -1,3 +1,5 @@
-﻿  Students.cpp
+﻿  MainForm.cpp
+  Students.cpp
+  Generating Code...
   MainForm.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   StudentManager.vcxproj -> C:\Users\maiso\source\repos\StudentManager\Debug\StudentManager.exe

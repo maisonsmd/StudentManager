@@ -1,0 +1,7 @@
+﻿  MainForm.cpp
+c:\users\maiso\source\repos\studentmanager\studentmanager\mainform.h(529): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+c:\users\maiso\source\repos\studentmanager\studentmanager\mainform.h(529): warning C4566: character represented by universal-character-name '\u1ED3' cannot be represented in the current code page (1252)
+c:\users\maiso\source\repos\studentmanager\studentmanager\mainform.h(529): warning C4566: character represented by universal-character-name '\u1EA1' cannot be represented in the current code page (1252)
+  Students.cpp
+  Generating Code...
+  StudentManager.vcxproj -> C:\Users\maiso\source\repos\StudentManager\Release\StudentManager.exe

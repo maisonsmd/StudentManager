@@ -23,9 +23,33 @@ List<StudentContainer^>^ Students::FindStudents(String^ keywords, SearchMethod b
 {
 	keywords = keywords->ToLower();
 	List<StudentContainer^>^ result = gcnew List<StudentContainer^>;
+	//find most match result first
+	for (int i = 0; i < studentsList->Count; i++) {
+		StudentContainer^ current = studentsList[i];
+		String^ finder = gcnew String("");
+		switch (by)
+		{
+			case BY_ID:
+				finder = current->ID;
+				break;
+			case BY_NAME:
+				finder = current->Name;
+				break;
+			case BY_CLASS:
+				finder = current->Class;
+				break;
+			default:
+				break;
+		}
+		finder = finder->ToLower();
+		if (finder->Equals(keywords))
+			result->Add(current);
+	}
 
 	for (int i = 0; i < studentsList->Count; i++) {
 		StudentContainer^ current = studentsList[i];
+		if (result->Contains(current))
+			continue;
 		String^ finder = gcnew String("");
 		switch (by)
 		{

@@ -524,6 +524,10 @@ namespace StudentManager {
 			MessageBox::Show(L"0 > điểm < 10!");
 			return;
 		}
+		if (students.FindStudents(stID, BY_ID, false)->Count > 0) {
+			MessageBox::Show(L"SV mã " + stID + L" đã tồn tại!");
+			return;
+		}
 		students.AddStudent(StudentContainer(stName, stDateOfBirth, stID, stClass, stScore));
 		updateGridView(students.GetStudentList());
 		students.WriteFile();
@@ -604,6 +608,10 @@ namespace StudentManager {
 			MessageBox::Show(L"0 > điểm < 10!");
 			return;
 		}
+		/*if (students.FindStudents(editingStudent->ID, BY_ID, false)->Count > 0) {
+			MessageBox::Show(L"SV mã " + stID + L" đã tồn tại!");
+			return;
+		}*/
 		//update data
 		selectedStudent->Name = editingStudent->Name;
 		selectedStudent->ID = editingStudent->ID;
